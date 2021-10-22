@@ -10,4 +10,9 @@ public class MainController {
     public String getHomePage() {
         return "index";
     }
+
+    @GetMapping("/about")
+    public String getAboutPage() {
+        return "about";
+    }
 }

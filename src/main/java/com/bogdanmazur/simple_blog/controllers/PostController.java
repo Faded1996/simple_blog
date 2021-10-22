@@ -5,11 +5,13 @@ import com.bogdanmazur.simple_blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -33,7 +35,11 @@ public class PostController {
     }
 
     @PostMapping("/posts/add")
-    public String saveNewPost(@ModelAttribute("newPost") Post post) {
+    public String saveNewPost(@ModelAttribute("newPost") @Valid Post post,
+                              BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "add-new-post";
+        }
         postService.saveNewPost(post);
         return "redirect:/posts";
     }
@@ -54,8 +60,13 @@ public class PostController {
     }
 
     @PostMapping("/posts/{id}")
-    public String saveEditedPost(@ModelAttribute("postById") Post post,
-                                 @PathVariable(value = "id") Long id) {
+    public String saveEditedPost(@ModelAttribute("postById") @Valid Post post,
+                                 BindingResult bindingResult,
+                                 @PathVariable(value = "id") Long id
+                                 ) {
+        if (bindingResult.hasErrors()) {
+            return "edit-post";
+        }
         Post oldPost = postService.getPostById(id);
         oldPost.setTitle(post.getTitle());
         oldPost.setSummary(post.getSummary());

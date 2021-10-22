@@ -21,19 +21,22 @@
             <div class="card-body">
                 <form th:action="@{/posts/add}" th:object="${newPost}" method="post">
                     <div class="form-group">
-                        <label class="form-label">First name</label>
+                        <label class="form-label">Title</label>
                         <input type="text" name="title" th:field="*{title}"
                                placeholder="Enter title..." class="form-control">
+                        <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Summary</label>
                         <input type="text" name="summary" th:field="*{summary}"
                                placeholder="Enter summary" class="form-control">
+                        <div th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}" class="text-danger"></div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Content</label>
                         <textarea name="email" th:field="*{content}" placeholder="Enter full text"
-                               class="form-control"/>
+                                  class="form-control"/>
+                        <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger"></div>
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary mt-3 col-2">Add</button>
