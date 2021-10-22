@@ -1,0 +1,22 @@
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <span class="badge bg-primary">Simple blog</span>
+            </div>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+             </button>-->
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                    <a class="nav-link" th:href="@{/posts}" >All posts</a>
+                    <a class="nav-link" th:href="@{/posts/add}">New post</a>
+                    <a class="nav-link" >About project</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- <div th:insert="blocks/navbar ::navbar"></div> -->
