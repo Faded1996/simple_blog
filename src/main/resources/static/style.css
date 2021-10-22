@@ -1,0 +1,25 @@
+.btn{
+width: 90px;
+}
+
+body{
+display: flex;
+flex-direction: column;
+}
+
+@media (max-width: 1200px){
+    .container{
+    max-width: 970px;}
+}
+
+@media (max-width: 992px){
+    .container{
+    max-width: 750px;
+    }
+}
+
+@media (max-width: 767px){
+    .container{
+    max-width: 750px;
+    }
+}
