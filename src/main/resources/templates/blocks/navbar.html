@@ -10,11 +10,17 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
-                    <a class="nav-link" th:href="@{/posts}" >All posts</a>
+                    <a class="nav-link" th:href="@{/posts}">All posts</a>
                     <a class="nav-link" th:href="@{/posts/add}">New post</a>
                     <a class="nav-link" th:href="@{/about}">About project</a>
+
                 </div>
+
             </div>
+            <div th:if="${param.logout}">
+                <a class="btn btn-outline-light me-2 " th:href="@{/login}">Log In</a>
+            </div>
+            <a class="btn btn-secondary me-2 " th:href="@{/logout}">Log Out</a>
         </div>
     </nav>
 </div>
