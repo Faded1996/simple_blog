@@ -1,25 +1,16 @@
+/* we have navbar fixed. We don't want it to overlap next section. */
+
+body::before{
+display: block;
+content: '';
+height: 55px;
+}
+
 .btn{
-width: 90px;
+min-width: 90px;
 }
 
-body{
-display: flex;
-flex-direction: column;
-}
+@media(min-width: 768px){
+.news-input{width: 50%;}
 
-@media (max-width: 1200px){
-    .container{
-    max-width: 970px;}
-}
-
-@media (max-width: 992px){
-    .container{
-    max-width: 750px;
-    }
-}
-
-@media (max-width: 767px){
-    .container{
-    max-width: 750px;
-    }
 }
