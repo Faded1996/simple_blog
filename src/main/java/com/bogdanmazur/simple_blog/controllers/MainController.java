@@ -16,13 +16,5 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/about")
-    public String getAboutPage() {
-        return "about";
-    }
-
-    // experiment below
-
-
 
 }
