@@ -1,7 +1,7 @@
 package com.bogdanmazur.simple_blog.controllers;
 
 import com.bogdanmazur.simple_blog.entity.Post;
-import com.bogdanmazur.simple_blog.services.PostService;
+import com.bogdanmazur.simple_blog.services.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import java.util.List;
 public class PostController {
 
     @Autowired
-    private PostService postService;
+    private PostServiceImpl postService;
 
     @GetMapping("/posts")
     public String getAllPosts(Model model) {

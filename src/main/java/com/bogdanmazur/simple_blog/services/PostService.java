@@ -1,31 +1,16 @@
 package com.bogdanmazur.simple_blog.services;
 
 import com.bogdanmazur.simple_blog.entity.Post;
-import com.bogdanmazur.simple_blog.repositories.PostRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class PostService {
+public interface PostService {
 
-    @Autowired
-    private PostRepository postRepository;
+    List<Post> getAllPosts();
 
-    public   List<Post> getAllPosts() {
-      return postRepository.findAll();
-    }
+    void saveNewPost(Post post);
 
-    public void saveNewPost(Post post) {
-        postRepository.save(post);
-    }
+    Post getPostById(Long id);
 
-    public Post getPostById(Long id) {
-        return postRepository.findById(id).orElseThrow();
-    }
-
-    public void deletePost(Long id) {
-        postRepository.deleteById(id);
-    }
+    void deletePost(Long id);
 }
